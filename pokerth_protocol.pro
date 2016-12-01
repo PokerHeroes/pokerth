@@ -2,11 +2,11 @@
 TEMPLATE = lib
 CODECFORSRC = UTF-8
 CONFIG += staticlib \
-	thread \
-	exceptions \
-	rtti \
-	stl \
-	warn_on
+    thread \
+    exceptions \
+    rtti \
+    stl \
+    warn_on
 UI_DIR = uics
 TARGET = lib/pokerth_protocol
 QMAKE_CLEAN += ./lib/libpokerth_protocol.a
@@ -14,29 +14,29 @@ MOC_DIR = mocs
 OBJECTS_DIR = obj
 DEFINES += ENABLE_IPV6
 QT -= core \
-	gui
+    gui
 # PRECOMPILED_HEADER = src/pch_lib.h
 
 INCLUDEPATH += . \
-	src
+    src
 DEPENDPATH += . \
-	src
+    src
 
 # Input
 
 HEADERS += src/third_party/protobuf/pokerth.pb.h \
-	src/third_party/protobuf/chatcleaner.pb.h
+    src/third_party/protobuf/chatcleaner.pb.h
 SOURCES += src/third_party/protobuf/pokerth.pb.cc \
-	src/third_party/protobuf/chatcleaner.pb.cc
+    src/third_party/protobuf/chatcleaner.pb.cc
 win32 {
-	DEFINES += CURL_STATICLIB
-	DEFINES += _WIN32_WINNT=0x0501
+    DEFINES += CURL_STATICLIB
+    DEFINES += _WIN32_WINNT=0x0501
 }
 unix : !mac {
         INCLUDEPATH += $${PREFIX}/include
-	system(protoc pokerth.proto --cpp_out=src/third_party/protobuf)
-	system(protoc chatcleaner.proto --cpp_out=src/third_party/protobuf)
-	system(protoc pokerth.proto --java_out=tests/src)
+    system(protoc pokerth.proto --cpp_out=src/third_party/protobuf)
+    system(protoc chatcleaner.proto --cpp_out=src/third_party/protobuf)
+    system(protoc pokerth.proto --java_out=tests/src)
 }
 mac { 
         # make it x86_64 only
@@ -45,11 +45,11 @@ mac {
         CONFIG -= ppc
         QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.6
 
-	# for universal-compilation on PPC-Mac uncomment the following line
-	# on Intel-Mac you have to comment this line out or build will fail.
-	# QMAKE_MAC_SDK=/Developer/SDKs/MacOSX10.4u.sdk/
-	INCLUDEPATH += /Developer/SDKs/MacOSX10.6.sdk/usr/include/
-	INCLUDEPATH += /Library/Frameworks/SDL.framework/Headers
-	INCLUDEPATH += /Library/Frameworks/SDL_mixer.framework/Headers
-	INCLUDEPATH += /usr/local/include
+    # for universal-compilation on PPC-Mac uncomment the following line
+    # on Intel-Mac you have to comment this line out or build will fail.
+    # QMAKE_MAC_SDK=/Developer/SDKs/MacOSX10.4u.sdk/
+    INCLUDEPATH += /Developer/SDKs/MacOSX10.6.sdk/usr/include/
+    INCLUDEPATH += /Library/Frameworks/SDL.framework/Headers
+    INCLUDEPATH += /Library/Frameworks/SDL_mixer.framework/Headers
+    INCLUDEPATH += /usr/local/include
 }

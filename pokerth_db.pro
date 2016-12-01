@@ -1,7 +1,7 @@
 # QMake pro-file for PokerTH db library
 
 isEmpty( PREFIX ){
-	PREFIX =/usr
+    PREFIX =/usr
 }
 
 TEMPLATE = lib
@@ -18,38 +18,38 @@ QT -= core gui
 #PRECOMPILED_HEADER = src/pch_lib.h
 
 INCLUDEPATH += . \
-		src
+        src
 
 DEPENDPATH += . \
-		src
+        src
 
 # Input
 HEADERS += \
-		src/db/serverdbcallback.h \
-		src/db/serverdbfactory.h \
-		src/db/serverdbinterface.h \
-		src/db/serverdbgeneric.h \
-		src/db/serverdbfactorygeneric.h \
-		src/db/serverdbnoaction.h
+        src/db/serverdbcallback.h \
+        src/db/serverdbfactory.h \
+        src/db/serverdbinterface.h \
+        src/db/serverdbgeneric.h \
+        src/db/serverdbfactorygeneric.h \
+        src/db/serverdbnoaction.h
 
 SOURCES += \
-		src/db/common/serverdbcallback.cpp \
-		src/db/common/serverdbfactory.cpp \
-		src/db/common/serverdbinterface.cpp \
-		src/db/common/serverdbgeneric.cpp \
-		src/db/common/serverdbfactorygeneric.cpp \
-		src/db/common/serverdbnoaction.cpp
+        src/db/common/serverdbcallback.cpp \
+        src/db/common/serverdbfactory.cpp \
+        src/db/common/serverdbinterface.cpp \
+        src/db/common/serverdbgeneric.cpp \
+        src/db/common/serverdbfactorygeneric.cpp \
+        src/db/common/serverdbnoaction.cpp
 
 win32{
-	DEFINES += CURL_STATICLIB
-	DEFINES += _WIN32_WINNT=0x0501
-	DEPENDPATH += src/net/win32/ src/core/win32
-	INCLUDEPATH += ../boost/ ../GnuTLS/include ../curl/include ../zlib
+    DEFINES += CURL_STATICLIB
+    DEFINES += _WIN32_WINNT=0x0501
+    DEPENDPATH += src/net/win32/ src/core/win32
+    INCLUDEPATH += ../boost/ ../GnuTLS/include ../curl/include ../zlib
 }
 !win32{
-	##### My release static build options
-	#QMAKE_CXXFLAGS += -ffunction-sections -fdata-sections
-	INCLUDEPATH += $${PREFIX}/include
+    ##### My release static build options
+    #QMAKE_CXXFLAGS += -ffunction-sections -fdata-sections
+    INCLUDEPATH += $${PREFIX}/include
 }
 
 mac{
@@ -60,12 +60,12 @@ mac{
         QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.6
         QMAKE_CXXFLAGS -= -std=gnu++0x
 
-	# for universal-compilation on PPC-Mac uncomment the following line
-	# on Intel-Mac you have to comment this line out or build will fail.
-	#	QMAKE_MAC_SDK=/Developer/SDKs/MacOSX10.4u.sdk/
+    # for universal-compilation on PPC-Mac uncomment the following line
+    # on Intel-Mac you have to comment this line out or build will fail.
+    #    QMAKE_MAC_SDK=/Developer/SDKs/MacOSX10.4u.sdk/
 
-	INCLUDEPATH += /Developer/SDKs/MacOSX10.6.sdk/usr/include/
-	INCLUDEPATH += /Library/Frameworks/SDL.framework/Headers
-	INCLUDEPATH += /Library/Frameworks/SDL_mixer.framework/Headers
-	INCLUDEPATH += /usr/local/include
+    INCLUDEPATH += /Developer/SDKs/MacOSX10.6.sdk/usr/include/
+    INCLUDEPATH += /Library/Frameworks/SDL.framework/Headers
+    INCLUDEPATH += /Library/Frameworks/SDL_mixer.framework/Headers
+    INCLUDEPATH += /usr/local/include
 }

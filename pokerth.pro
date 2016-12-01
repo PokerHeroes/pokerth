@@ -2,17 +2,19 @@
 
 TEMPLATE = subdirs
 SUBDIRS = pokerth_protocol.pro pokerth_db.pro pokerth_lib.pro
+QMAKE_DISTCLEAN += -r lib/ bin/ mocs/ obj/ uics/
+
 official_server {
     SUBDIRS += pokerth_dbofficial.pro
 }
-qml-client{
+qml-client {
     SUBDIRS += pokerth_qml-client.pro
 }
-!qml-client{
+!qml-client {
     SUBDIRS += pokerth_game.pro
 }
 !mac:!gui_800x480:!client:!qml-client {
-	SUBDIRS += pokerth_server.pro chatcleaner.pro
+    SUBDIRS += pokerth_server.pro chatcleaner.pro
 }
 CONFIG += ordered
 
