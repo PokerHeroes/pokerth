@@ -532,13 +532,12 @@ AvatarManager::InternalReadDirectory(const std::string &dir, AvatarMap &avatars)
 				++i;
 			}
 		} catch (...) {
-			LOG_ERROR("Exception caught when trying to scan avatar directory.");
+			LOG_ERROR("Exception caught when trying to scan avatar directory " << tmpPath << ".");
 			retVal = false;
 		}
 	} else {
-		LOG_ERROR("Avatar directory does not exist.");
+		LOG_ERROR("Avatar directory " << tmpPath << " does not exist.");
 		retVal = false;
 	}
 	return retVal;
 }
-
