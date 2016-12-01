@@ -1,20 +1,15 @@
-# exclude changes done by make process
 Makefile
 Makefile.chatcleaner
 Makefile.pokerth_db
+Makefile.pokerth_dbofficial
 Makefile.pokerth_game
 Makefile.pokerth_lib
 Makefile.pokerth_protocol
 Makefile.pokerth_server
+qrc_pokerth.cpp
+
 bin/
-chatcleaner
 lib/
 mocs/
 obj/
-pokerth
-qrc_pokerth.cpp
 uics/
-make.sh
-gitpush_serverstuff_stable
-pokerth_server
-
